@@ -11,6 +11,7 @@ import test from './test/test';
 const USER_ADDRESSES = ENV.USER_ADDRESSES;
 const PROXY_WALLET = ENV.PROXY_WALLET;
 const DRY_RUN = ENV.DRY_RUN;
+const VERSION = '1.1.0'; // Added for deployment tracking
 
 // Graceful shutdown handler
 let isShuttingDown = false;
@@ -79,6 +80,7 @@ export const main = async () => {
             cyan: '\x1b[36m',
         };
         
+        console.log(`\n${colors.cyan}🤖 Polymarket Copy Trading Bot v${VERSION}${colors.reset}`);
         console.log(`\n${colors.yellow}💡 First time running the bot?${colors.reset}`);
         console.log(`   Read the guide: ${colors.cyan}GETTING_STARTED.md${colors.reset}`);
         console.log(`   Run health check: ${colors.cyan}npm run health-check${colors.reset}\n`);

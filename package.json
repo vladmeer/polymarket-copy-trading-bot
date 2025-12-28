@@ -36,6 +36,7 @@
         "audit": "ts-node src/scripts/auditCopyTradingAlgorithmFixed.ts",
         "audit-old": "ts-node src/scripts/auditCopyTradingAlgorithm.ts",
         "health-check": "ts-node src/scripts/healthCheck.ts",
+        "paper-stats": "node dist/scripts/paperStats.js",
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
         "format": "prettier --write .",
