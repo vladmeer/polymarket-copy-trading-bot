@@ -170,7 +170,10 @@ const postOrder = async (
         //Buy strategy
         Logger.info('Executing BUY strategy...');
 
-        Logger.info(`Your balance: $${my_balance.toFixed(2)}`);
+        // In DRY_RUN mode, use simulated balance of $1000 instead of real balance
+        const effectiveBalance = DRY_RUN ? 1000 : my_balance;
+
+        Logger.info(`Your balance: $${my_balance.toFixed(2)}${DRY_RUN ? ' (using $1000 simulated)' : ''}`);
         Logger.info(`Trader bought: $${trade.usdcSize.toFixed(2)}`);
 
         // Get current position size for position limit checks
@@ -180,7 +183,7 @@ const postOrder = async (
         const orderCalc = calculateOrderSize(
             COPY_STRATEGY_CONFIG,
             trade.usdcSize,
-            my_balance,
+            effectiveBalance,
             currentPositionValue
         );
 

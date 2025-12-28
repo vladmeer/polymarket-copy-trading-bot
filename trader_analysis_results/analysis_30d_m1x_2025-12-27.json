@@ -1,0 +1,66 @@
+{
+  "config": {
+    "historyDays": 30,
+    "multiplier": 1,
+    "minOrderSize": 1,
+    "startingCapital": 1000,
+    "minTraderTrades": 100
+  },
+  "timestamp": 1766833386603,
+  "results": [
+    {
+      "address": "0x7c3db723f1d4d8cb9c550095203b686cb11e5c6b",
+      "startingCapital": 1000,
+      "currentCapital": 3.879313156701011,
+      "totalTrades": 2000,
+      "copiedTrades": 93,
+      "skippedTrades": 1907,
+      "totalPnl": -996.120686843299,
+      "roi": -99.6120686843299,
+      "realizedPnl": -43.59045822776906,
+      "unrealizedPnl": -956.2993321638719,
+      "winRate": 0,
+      "avgTradeSize": 10.778956605853297,
+      "openPositions": 2,
+      "closedPositions": 1,
+      "simulationTime": 1037,
+      "profileUrl": "https://polymarket.com/profile/0x7c3db723f1d4d8cb9c550095203b686cb11e5c6b"
+    },
+    {
+      "address": "0x6bab41a0dc40d6dd4c1a915b8c01969479fd1292",
+      "startingCapital": 1000,
+      "currentCapital": 15.520927857089884,
+      "totalTrades": 2000,
+      "copiedTrades": 104,
+      "skippedTrades": 1896,
+      "totalPnl": -984.4790721429101,
+      "roi": -98.447907214291,
+      "realizedPnl": 0,
+      "unrealizedPnl": -999.9422977622771,
+      "winRate": 0,
+      "avgTradeSize": 9.614829786175742,
+      "openPositions": 4,
+      "closedPositions": 0,
+      "simulationTime": 935,
+      "profileUrl": "https://polymarket.com/profile/0x6bab41a0dc40d6dd4c1a915b8c01969479fd1292"
+    },
+    {
+      "address": "0xa4b366ad22fc0d06f1e934ff468e8922431a87b8",
+      "startingCapital": 1000,
+      "currentCapital": 8.30292614090785,
+      "totalTrades": 2000,
+      "copiedTrades": 62,
+      "skippedTrades": 1938,
+      "totalPnl": -991.6970738590921,
+      "roi": -99.1697073859092,
+      "realizedPnl": 0,
+      "unrealizedPnl": -999.8254730448072,
+      "winRate": 0,
+      "avgTradeSize": 16.12621730717431,
+      "openPositions": 3,
+      "closedPositions": 0,
+      "simulationTime": 938,
+      "profileUrl": "https://polymarket.com/profile/0xa4b366ad22fc0d06f1e934ff468e8922431a87b8"
+    }
+  ]
+}

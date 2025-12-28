@@ -1,0 +1,84 @@
+{
+  "startTime": 1766929712344,
+  "trades": [
+    {
+      "timestamp": 1766929716365,
+      "side": "BUY",
+      "market": "sea-ata-int-2025-12-28-int",
+      "outcome": "Yes",
+      "usdcAmount": 8.867924499999999,
+      "tokenAmount": 8.957499494949493,
+      "price": 0.99,
+      "traderAddress": "0x16b29c50f2439faf627209b2ac0c7bbddaa8a881",
+      "conditionId": "0x5d5287700fcd20e754ddba191ad29cb6d9f011aeec6c6e4a742f93443775383c",
+      "asset": "110828055413030069724844246296986797261052567592013392406451870685254069570132"
+    },
+    {
+      "timestamp": 1766929735300,
+      "side": "BUY",
+      "market": "nfl-pit-cle-2025-12-28-spread-away-3pt5",
+      "outcome": "Steelers",
+      "usdcAmount": 2.1420000000000003,
+      "tokenAmount": 2.163636363636364,
+      "price": 0.99,
+      "traderAddress": "0x16b29c50f2439faf627209b2ac0c7bbddaa8a881",
+      "conditionId": "0x07b191baf56891c424ee33de7467d08bbadd09da308450a0bb467b516d00e0ba",
+      "asset": "61224167258170135217384801571520041635288773073071223492482677498693848445348"
+    },
+    {
+      "timestamp": 1766929736445,
+      "side": "BUY",
+      "market": "sea-bol-sas-2025-12-28-bol",
+      "outcome": "Yes",
+      "usdcAmount": 6.052941100000001,
+      "tokenAmount": 6.1140819191919205,
+      "price": 0.99,
+      "traderAddress": "0x16b29c50f2439faf627209b2ac0c7bbddaa8a881",
+      "conditionId": "0xf69a2280e878a17902866e761abb82bc9b5a633c9b9e62fff5dbff4cf427c458",
+      "asset": "76552233876538422672526531829540148653794959776535188849111239324643324665449"
+    },
+    {
+      "timestamp": 1766929737310,
+      "side": "BUY",
+      "market": "nfl-pit-cle-2025-12-28-spread-away-3pt5",
+      "outcome": "Steelers",
+      "usdcAmount": 65.382,
+      "tokenAmount": 66.04242424242425,
+      "price": 0.99,
+      "traderAddress": "0x16b29c50f2439faf627209b2ac0c7bbddaa8a881",
+      "conditionId": "0x07b191baf56891c424ee33de7467d08bbadd09da308450a0bb467b516d00e0ba",
+      "asset": "61224167258170135217384801571520041635288773073071223492482677498693848445348"
+    }
+  ],
+  "positions": {
+    "0x5d5287700fcd20e754ddba191ad29cb6d9f011aeec6c6e4a742f93443775383c:110828055413030069724844246296986797261052567592013392406451870685254069570132": {
+      "market": "sea-ata-int-2025-12-28-int",
+      "outcome": "Yes",
+      "conditionId": "0x5d5287700fcd20e754ddba191ad29cb6d9f011aeec6c6e4a742f93443775383c",
+      "asset": "110828055413030069724844246296986797261052567592013392406451870685254069570132",
+      "tokenAmount": 8.957499494949493,
+      "avgEntryPrice": 0.99,
+      "totalInvested": 8.867924499999999
+    },
+    "0x07b191baf56891c424ee33de7467d08bbadd09da308450a0bb467b516d00e0ba:61224167258170135217384801571520041635288773073071223492482677498693848445348": {
+      "market": "nfl-pit-cle-2025-12-28-spread-away-3pt5",
+      "outcome": "Steelers",
+      "conditionId": "0x07b191baf56891c424ee33de7467d08bbadd09da308450a0bb467b516d00e0ba",
+      "asset": "61224167258170135217384801571520041635288773073071223492482677498693848445348",
+      "tokenAmount": 68.20606060606062,
+      "avgEntryPrice": 0.9899999999999999,
+      "totalInvested": 67.524
+    },
+    "0xf69a2280e878a17902866e761abb82bc9b5a633c9b9e62fff5dbff4cf427c458:76552233876538422672526531829540148653794959776535188849111239324643324665449": {
+      "market": "sea-bol-sas-2025-12-28-bol",
+      "outcome": "Yes",
+      "conditionId": "0xf69a2280e878a17902866e761abb82bc9b5a633c9b9e62fff5dbff4cf427c458",
+      "asset": "76552233876538422672526531829540148653794959776535188849111239324643324665449",
+      "tokenAmount": 6.1140819191919205,
+      "avgEntryPrice": 0.99,
+      "totalInvested": 6.052941100000001
+    }
+  },
+  "realizedPnL": 0,
+  "totalInvested": 82.44486560000001
+}
