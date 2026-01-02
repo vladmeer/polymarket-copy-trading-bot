@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "postinstall": "node src/scripts/postinstall.js",
         "help": "ts-node src/scripts/help.ts",
         "setup": "ts-node src/scripts/setup.ts",
         "build": "tsc",
