@@ -329,6 +329,8 @@ export const ENV = {
     CLOB_HTTP_URL: process.env.CLOB_HTTP_URL as string,
     CLOB_WS_URL: process.env.CLOB_WS_URL as string,
     FETCH_INTERVAL: parseInt(process.env.FETCH_INTERVAL || '1', 10),
+    // Paper trading / dry run mode - tracks trades without executing them
+    DRY_RUN: process.env.DRY_RUN === 'true',
     TOO_OLD_TIMESTAMP: parseInt(process.env.TOO_OLD_TIMESTAMP || '24', 10),
     RETRY_LIMIT: parseInt(process.env.RETRY_LIMIT || '3', 10),
     // Legacy parameters (kept for backward compatibility)

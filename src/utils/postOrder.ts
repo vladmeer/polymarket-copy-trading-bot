@@ -4,9 +4,11 @@ import { UserActivityInterface, UserPositionInterface } from '../interfaces/User
 import { getUserActivityModel } from '../models/userHistory';
 import Logger from './logger';
 import { calculateOrderSize, getTradeMultiplier } from '../config/copyStrategy';
+import { recordPaperTrade, getPaperTradingStats } from './paperTrading';
 
 const RETRY_LIMIT = ENV.RETRY_LIMIT;
 const COPY_STRATEGY_CONFIG = ENV.COPY_STRATEGY_CONFIG;
+const DRY_RUN = ENV.DRY_RUN;
 
 // Legacy parameters (for backward compatibility in SELL logic)
 const TRADE_MULTIPLIER = ENV.TRADE_MULTIPLIER;
@@ -168,7 +170,10 @@ const postOrder = async (
         //Buy strategy
         Logger.info('Executing BUY strategy...');
 
-        Logger.info(`Your balance: $${my_balance.toFixed(2)}`);
+        // In DRY_RUN mode, use simulated balance of $1000 instead of real balance
+        const effectiveBalance = DRY_RUN ? 1000 : my_balance;
+
+        Logger.info(`Your balance: $${my_balance.toFixed(2)}${DRY_RUN ? ' (using $1000 simulated)' : ''}`);
         Logger.info(`Trader bought: $${trade.usdcSize.toFixed(2)}`);
 
         // Get current position size for position limit checks
@@ -178,7 +183,7 @@ const postOrder = async (
         const orderCalc = calculateOrderSize(
             COPY_STRATEGY_CONFIG,
             trade.usdcSize,
-            my_balance,
+            effectiveBalance,
             currentPositionValue
         );
 
@@ -196,6 +201,40 @@ const postOrder = async (
         }
 
         let remaining = orderCalc.finalAmount;
+
+        // DRY RUN MODE: Simulate the buy without executing
+        if (DRY_RUN) {
+            const orderBook = await clobClient.getOrderBook(trade.asset);
+            const bestAsk = orderBook.asks?.[0];
+            const simulatedPrice = bestAsk ? parseFloat(bestAsk.price) : trade.price;
+            const simulatedTokens = remaining / simulatedPrice;
+
+            Logger.info(`📋 [PAPER TRADE] Would BUY $${remaining.toFixed(2)} at ~$${simulatedPrice.toFixed(4)}`);
+            Logger.info(`📋 [PAPER TRADE] Would receive ~${simulatedTokens.toFixed(2)} tokens`);
+
+            // Record paper trade
+            await recordPaperTrade({
+                timestamp: Date.now(),
+                side: 'BUY',
+                market: trade.slug || trade.conditionId,
+                outcome: trade.outcome || 'Unknown',
+                usdcAmount: remaining,
+                tokenAmount: simulatedTokens,
+                price: simulatedPrice,
+                traderAddress: userAddress,
+                conditionId: trade.conditionId,
+                asset: trade.asset,
+            });
+
+            await UserActivity.updateOne(
+                { _id: trade._id },
+                { bot: true, myBoughtSize: simulatedTokens }
+            );
+
+            const stats = await getPaperTradingStats();
+            Logger.info(`📊 [PAPER STATS] Total trades: ${stats.totalTrades} | Invested: $${stats.totalInvested.toFixed(2)} | Current value: $${stats.currentValue.toFixed(2)} | P&L: $${stats.totalPnL.toFixed(2)} (${stats.roi.toFixed(2)}%)`);
+            return;
+        }
 
         let retry = 0;
         let abortDueToFunds = false;
@@ -390,6 +429,37 @@ const postOrder = async (
             );
             Logger.warning(`Capping to maximum available: ${my_position.size.toFixed(2)} tokens`);
             remaining = my_position.size;
+        }
+
+        // DRY RUN MODE: Simulate the sell without executing
+        if (DRY_RUN) {
+            const orderBook = await clobClient.getOrderBook(trade.asset);
+            const bestBid = orderBook.bids?.[0];
+            const simulatedPrice = bestBid ? parseFloat(bestBid.price) : trade.price;
+            const simulatedUsdcValue = remaining * simulatedPrice;
+
+            Logger.info(`📋 [PAPER TRADE] Would SELL ${remaining.toFixed(2)} tokens at ~$${simulatedPrice.toFixed(4)}`);
+            Logger.info(`📋 [PAPER TRADE] Would receive ~$${simulatedUsdcValue.toFixed(2)}`);
+
+            // Record paper trade
+            await recordPaperTrade({
+                timestamp: Date.now(),
+                side: 'SELL',
+                market: trade.slug || trade.conditionId,
+                outcome: trade.outcome || 'Unknown',
+                usdcAmount: simulatedUsdcValue,
+                tokenAmount: remaining,
+                price: simulatedPrice,
+                traderAddress: userAddress,
+                conditionId: trade.conditionId,
+                asset: trade.asset,
+            });
+
+            await UserActivity.updateOne({ _id: trade._id }, { bot: true });
+
+            const stats = await getPaperTradingStats();
+            Logger.info(`📊 [PAPER STATS] Total trades: ${stats.totalTrades} | Invested: $${stats.totalInvested.toFixed(2)} | Current value: $${stats.currentValue.toFixed(2)} | P&L: $${stats.totalPnL.toFixed(2)} (${stats.roi.toFixed(2)}%)`);
+            return;
         }
 
         let retry = 0;

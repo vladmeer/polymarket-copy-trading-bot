@@ -1,0 +1,78 @@
+{
+  "scanDate": "2025-12-27T11:03:24.277Z",
+  "config": {
+    "historyDays": 30,
+    "multiplier": 1,
+    "minOrderSize": 1,
+    "startingCapital": 1000,
+    "minTraderTrades": 50,
+    "maxAnalyzeTraders": 50
+  },
+  "summary": {
+    "totalAnalyzed": 3,
+    "profitable": 0,
+    "excellent": 0,
+    "good": 0,
+    "average": 0,
+    "poor": 0,
+    "bad": 3,
+    "avgROI": -99.07656109484337,
+    "avgWinRate": 0
+  },
+  "traders": [
+    {
+      "address": "0x6bab41a0dc40d6dd4c1a915b8c01969479fd1292",
+      "rank": 1,
+      "roi": -98.447907214291,
+      "totalPnl": -984.4790721429101,
+      "winRate": 0,
+      "totalTrades": 2000,
+      "copiedTrades": 104,
+      "avgTradeSize": 9.614829786175742,
+      "openPositions": 4,
+      "closedPositions": 0,
+      "realizedPnl": 0,
+      "unrealizedPnl": -999.9422977622771,
+      "lastActivityTime": 1766806821,
+      "lastActivityDate": "7 hours ago",
+      "profileUrl": "https://polymarket.com/profile/0x6bab41a0dc40d6dd4c1a915b8c01969479fd1292",
+      "status": "bad"
+    },
+    {
+      "address": "0xa4b366ad22fc0d06f1e934ff468e8922431a87b8",
+      "rank": 2,
+      "roi": -99.1697073859092,
+      "totalPnl": -991.6970738590921,
+      "winRate": 0,
+      "totalTrades": 2000,
+      "copiedTrades": 62,
+      "avgTradeSize": 16.12621730717431,
+      "openPositions": 3,
+      "closedPositions": 0,
+      "realizedPnl": 0,
+      "unrealizedPnl": -999.8254730448072,
+      "lastActivityTime": 1766778507,
+      "lastActivityDate": "15 hours ago",
+      "profileUrl": "https://polymarket.com/profile/0xa4b366ad22fc0d06f1e934ff468e8922431a87b8",
+      "status": "bad"
+    },
+    {
+      "address": "0x7c3db723f1d4d8cb9c550095203b686cb11e5c6b",
+      "rank": 3,
+      "roi": -99.6120686843299,
+      "totalPnl": -996.120686843299,
+      "winRate": 0,
+      "totalTrades": 2000,
+      "copiedTrades": 93,
+      "avgTradeSize": 10.778956605853297,
+      "openPositions": 2,
+      "closedPositions": 1,
+      "realizedPnl": -43.59045822776906,
+      "unrealizedPnl": -956.2993321638719,
+      "lastActivityTime": 1766833297,
+      "lastActivityDate": "2 minutes ago",
+      "profileUrl": "https://polymarket.com/profile/0x7c3db723f1d4d8cb9c550095203b686cb11e5c6b",
+      "status": "bad"
+    }
+  ]
+}
