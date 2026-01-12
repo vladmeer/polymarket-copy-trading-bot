@@ -5,11 +5,11 @@ import fetchData from '../utils/fetchData';
 const PRIVATE_KEY = ENV.PRIVATE_KEY;
 const RPC_URL = ENV.RPC_URL;
 
-const EOA_ADDRESS = '0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C';
-const GNOSIS_SAFE_ADDRESS = '0xd62531bc536bff72394fc5ef715525575787e809';
+const EOA_ADDRESS = 'XXX';
+const GNOSIS_SAFE_ADDRESS = 'XXX';
 
 // Polymarket Conditional Tokens contract на Polygon (ERC1155)
-const CONDITIONAL_TOKENS = '0x4D97DCd97eC945f40cF65F87097ACe5EA0476045';
+const CONDITIONAL_TOKENS = 'XXX';
 
 interface Position {
     asset: string;
