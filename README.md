@@ -120,7 +120,8 @@ This version has more advanced features than version 1 and is a truly profitable
 ✅ **Enterprise-grade reliability**  
 ✅ **Finding the Best Traders**  
 
-<img width="680" height="313" alt="image (19)" src="https://github.com/user-attachments/assets/d868f9f2-a1dd-4bfe-a76e-d8cbdfbd8497" />
+<img width="1529" height="618" alt="download (1)" src="https://github.com/user-attachments/assets/4891a54a-29be-4193-8034-42fe460ba84d" />
+
 
 
 https://github.com/user-attachments/assets/5cf88946-4a1a-4168-a41d-920ade3370d4
